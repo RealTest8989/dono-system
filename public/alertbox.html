@@ -1,0 +1,113 @@
+<html>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
+  background: #222222;
+}
+
+.alert-color {
+    color: #007bff;
+}
+
+#alert {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.9);
+    color: #fff;
+}
+
+.donation {
+    display: block;
+    font-size: 32px;
+    font-weight: 600;
+    width: 100%;
+}
+
+.message {
+    display: block;
+    font-size: 24px;
+    font-weight: 600;
+    width: 100%;
+    margin-top: 5px;
+}
+
+</style>
+
+
+<body>
+    <div id="alert">
+        <div class="donation"><span class="alert-color">Username</span> donated <span class="alert-color">3€</span>!</div>
+        <div class="message">Hey, whats going on</div>
+    </div>
+    <div id="player"></div>
+</body>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://code.responsivevoice.org/responsivevoice.js?key=ltjeMrfo"></script>
+<script>
+$(document).ready(function() {
+    /*
+    responsiveVoice.speak('Username donated 3€')
+    responsiveVoice.speak('Hey, whats going on');
+    */
+});
+</script>
+
+
+<script>
+
+    var tag = document.createElement('script');
+
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    var player;
+
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('player', {
+        height: '0',
+        width: '0',
+        events: {
+          'onReady': onPlayerReady,
+          'onStateChange': onPlayerStateChange
+        }
+      });
+    }
+
+    function onPlayerReady(event) {
+        event.target.loadVideoById({'videoId': 'bHQqvYy5KYo',
+               'startSeconds': 1,
+               'endSeconds': 2,
+               'suggestedQuality': 'large'});
+    }
+
+    var done = false;
+    function onPlayerStateChange(event) {
+      if (event.data == YT.PlayerState.PLAYING && !done) {
+        setTimeout(stopVideo, 60000);
+        done = true;
+      }
+    }
+
+    function stopVideo() {
+      player.stopVideo();
+    }
+
+    $('#alert').fadeOut(1000);
+
+
+</script>
+
+</html>
