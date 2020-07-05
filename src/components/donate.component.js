@@ -116,7 +116,7 @@ export default class Donate extends Component {
   render() {
     
     return (
-    <div className="test" style={{width: '100%', height: '100vh', background: '#222222' }}>
+    <div className="test" style={{width: '100%', background: '#222222', padding: '20px 0' }}>
     <div className="container">
     <Navbar />
     <div className="container donation-form">

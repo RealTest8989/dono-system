@@ -28,11 +28,15 @@ export default class Alertbox extends Component {
                     console.log(error);
                 });
             }
-        }, 1000);
+        }, 10000);
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        console.log(this.state.donations[0]);
+        if(this.state.donations[0] != null){
+            console.log(this.state.donations[0]);
+        } else {
+            console.log('No donation found.')
+        }
 
         if(prevState.donations != this.state.donations){
             if(this.state.donations[0] != null){

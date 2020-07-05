@@ -13,6 +13,9 @@ const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true }
 );
 
+const proxy = require('http-proxy-middleware')
+
+
 const connection = mongoose.connection;
 connection.once('open', () => {
   console.log("MongoDB database connection established successfully");
@@ -27,6 +30,11 @@ const donationsRouter = require('./routes/donations');
 
 app.use('/donations', donationsRouter);
 
+//Heroku
+if(process.env.NODE_ENV == 'production') {
+  app.use(express.static('dono-system/build'));
+}
+//
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
