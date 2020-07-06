@@ -6,7 +6,7 @@ import Alertbox from "./components/alertbox.component";
 
 function App() {
   return (
-    <Router>
+    <Router basename={`${process.env.PUBLIC_URL}/`}>
       <Route path="/alertbox" component={Alertbox} />
       <Route path="/donate" component={Donate} />
     </Router>
