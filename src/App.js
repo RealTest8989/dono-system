@@ -7,6 +7,7 @@ import Alertbox from "./components/alertbox.component";
 function App() {
   return (
     <Router>
+      <Route path="/" component={<h1>Test</h1>} />
       <Route path="/alertbox" component={Alertbox} />
       <Route path="/donate" component={Donate} />
     </Router>
