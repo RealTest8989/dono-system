@@ -20,7 +20,7 @@ export default class Alertbox extends Component {
     componentDidMount() {
         setInterval(() => {
             if(!this.state.playing){
-                axios.get('http://localhost:5000/donations/queue')
+                axios.get((process.env.baseURL || 'http://localhost:5000') + '/donations/queue')
                 .then(response => {
                 this.setState({ donations: response.data, loaded: true, tts_finished: false })
                 })
@@ -52,7 +52,7 @@ export default class Alertbox extends Component {
     
                 this.setState({playing: true});
     
-                axios.post('http://localhost:5000/donations/update/' + donation.id, donation)
+                axios.post((process.env.baseURL || 'http://localhost:5000') + '/donations/update/' + donation.id, donation)
                 .then(res => console.log(res.data));
         
                 const donation_alert_file = document.getElementsByClassName("donation-alert")[0];

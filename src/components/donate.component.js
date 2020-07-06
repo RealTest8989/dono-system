@@ -107,7 +107,7 @@ export default class Donate extends Component {
 
     console.log(donation);
 
-    axios.post('http://localhost:5000/donations/add', donation)
+    axios.post((process.env.baseURL || 'http://localhost:5000') + '/donations/add', donation)
       .then(res => console.log(res.data));
 
   }
