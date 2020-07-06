@@ -11,7 +11,7 @@ const port = process.env.PORT || 5000;
 /* Database */
 
 const uri = process.env.ATLAS_URI;
-mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true }
+  mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true }
 );
 
 const proxy = require('http-proxy-middleware')
@@ -32,7 +32,7 @@ const donationsRouter = require('./routes/donations');
 app.use('/donations', donationsRouter);
 
 if (process.env.NODE_ENV === 'production'){
-  app.use.express.static('../build');
+  app.use.express.static('/../build');
 }
 
 
