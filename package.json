@@ -21,7 +21,7 @@
     "speak-tts": "^2.0.8"
   },
   "scripts": {
-    "start": "cd backend && node server.js",
+    "start": "react-scripts start && cd backend && node server.js",
     "build": "react-scripts build",
     "install-npm": "npm install",
     "heroku-postbuild": "npm run install-npm && npm run build",
