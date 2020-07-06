@@ -208,7 +208,7 @@ export default class Donate extends Component {
               method: "post",
               body: JSON.stringify({
                 orderID: data.orderID,
-                clientID: 'ARZentNKUBtCx5GLk5mgB8mxWReWmLzO7L57DzN53fs1pM8CrE3TMli_0wF54TYlfcD49FGmbQda0syX'
+                clientID: ''
               })
             });
           }}
