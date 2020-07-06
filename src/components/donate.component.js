@@ -107,7 +107,7 @@ export default class Donate extends Component {
 
     console.log(donation);
 
-    axios.post('https://donation-system1.herokuapp.com:5000/donations/add', donation)
+    axios.post('https://donation-system1.herokuapp.com/donations/add', donation)
       .then(res => console.log(res.data));
 
   }
