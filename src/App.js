@@ -8,7 +8,7 @@ function App() {
   return (
     <Router>
       <Route path="/alertbox" component={Alertbox} />
-      <Route path="/donate" component={Donate} />
+      <Route path="/" component={Donate} />
     </Router>
   );
 }
