@@ -33,7 +33,7 @@ app.use('/donations', donationsRouter);
 
 if (process.env.NODE_ENV === 'production') {
   // Exprees will serve up production assets
-  app.use(express.static('../build'));
+  app.use(express.static('../../build'));
 
   // Express serve up index.html file if it doesn't recognize route
   const path = require('path');
